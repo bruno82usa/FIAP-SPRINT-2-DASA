@@ -1,0 +1,234 @@
+/* ═══════════════════════════════════════════════════════════
+   GENERA IA — Dasa Genomica  |  Design System
+   Cores extraidas do site oficial dasa.com.br
+   Fontes: Roboto (corpo), Roboto Slab (destaques)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables (DASA Brand) ── */
+:root {
+    --dasa-primary: #ABE6FF;
+    --dasa-primary-dark: #6BC5E8;
+    --dasa-secondary: #333333;
+    --dasa-text: #000F40;
+    --dasa-accent: #FF4F33;
+    --dasa-accent-hover: #E04020;
+    --dasa-gold: #D4B484;
+    --dasa-light: #DACAAB;
+    --dasa-bg: #F5F7FA;
+    --dasa-white: #FFFFFF;
+    --dasa-border: #E0E4E8;
+    --dasa-success: #2D8B4E;
+    --dasa-warning: #D4B484;
+    --dasa-danger: #C0392B;
+    --dasa-info: #3498DB;
+
+    --risk-low: #ABE6FF;
+    --risk-moderate: #D4B484;
+    --risk-high: #FF4F33;
+
+    --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-h1: 22px;
+    --font-size-h2: 20px;
+    --font-size-small: 15px;
+    --font-size-xs: 14px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --shadow-card: 0 2px 8px rgba(0, 15, 64, 0.08);
+    --shadow-card-hover: 0 4px 16px rgba(0, 15, 64, 0.12);
+}
+
+/* ── Font imports ── */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Roboto+Slab:wght@400;600&display=swap');
+
+/* ── Global ── */
+body, .chat-container {
+    font-family: var(--font-primary) !important;
+    font-size: var(--font-size-base) !important;
+    color: var(--dasa-text) !important;
+    background: var(--dasa-bg) !important;
+    line-height: 1.6 !important;
+}
+
+/* ── Typography scale ── */
+h1, h2, h3, .message-header {
+    font-family: var(--font-heading) !important;
+    color: var(--dasa-text) !important;
+    font-weight: 600 !important;
+}
+h1 { font-size: var(--font-size-h1) !important; }
+h2 { font-size: var(--font-size-h2) !important; }
+
+/* ── Buttons ── */
+button, .btn, [class*="button"] {
+    font-family: var(--font-primary) !important;
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm) !important;
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding: 10px 24px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+    background: var(--dasa-accent) !important;
+    color: var(--dasa-white) !important;
+    border: none !important;
+}
+.btn-primary:hover { background: var(--dasa-accent-hover) !important; }
+
+.btn-outline {
+    background: transparent !important;
+    color: var(--dasa-accent) !important;
+    border: 2px solid var(--dasa-accent) !important;
+}
+.btn-outline:hover {
+    background: var(--dasa-accent) !important;
+    color: var(--dasa-white) !important;
+}
+
+/* ── Cards ── */
+.card {
+    background: var(--dasa-white) !important;
+    border: 1px solid var(--dasa-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 20px !important;
+    margin-bottom: 12px !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: box-shadow 0.2s ease !important;
+}
+.card:hover { box-shadow: var(--shadow-card-hover) !important; }
+
+.card--risk-low { border-left: 4px solid var(--risk-low) !important; }
+.card--risk-moderate { border-left: 4px solid var(--risk-moderate) !important; }
+.card--risk-high { border-left: 4px solid var(--risk-high) !important; }
+
+/* ── Risk indicators ── */
+.risk-dot {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.risk-dot--low { background: var(--risk-low); }
+.risk-dot--moderate { background: var(--risk-moderate); }
+.risk-dot--high { background: var(--risk-high); }
+
+/* ── Tabs ── */
+.tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 8px 12px;
+    background: var(--dasa-white);
+    border-bottom: 2px solid var(--dasa-border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.tab-button {
+    flex: 1;
+    min-width: 80px;
+    padding: 12px 8px !important;
+    background: transparent !important;
+    color: var(--dasa-secondary) !important;
+    border: none !important;
+    border-bottom: 3px solid transparent !important;
+    border-radius: 0 !important;
+    font-size: var(--font-size-small) !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    min-height: 44px !important;
+}
+.tab-button.active {
+    color: var(--dasa-accent) !important;
+    border-bottom-color: var(--dasa-accent) !important;
+    font-weight: 600 !important;
+}
+
+/* ── Chat bubbles ── */
+.chat-message {
+    padding: 16px 20px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 12px !important;
+    max-width: 85% !important;
+    font-size: var(--font-size-base) !important;
+    line-height: 1.6 !important;
+}
+.chat-message--user {
+    background: var(--dasa-primary) !important;
+    color: var(--dasa-text) !important;
+    margin-left: auto !important;
+    border-bottom-right-radius: 4px !important;
+}
+.chat-message--assistant {
+    background: var(--dasa-white) !important;
+    color: var(--dasa-text) !important;
+    border: 1px solid var(--dasa-border) !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+/* ── Disclaimer bar ── */
+.disclaimer-bar {
+    background: #FFF3CD;
+    border: 1px solid #FFE69C;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: var(--font-size-small);
+    color: #856404;
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+/* ── Labels / badges ── */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+.badge--risk-low { background: rgba(171, 230, 255, 0.3); color: #005A8C; }
+.badge--risk-moderate { background: rgba(212, 180, 132, 0.3); color: #7A5A00; }
+.badge--risk-high { background: rgba(255, 79, 51, 0.15); color: #B03020; }
+.badge--info { background: rgba(52, 152, 219, 0.15); color: #1A5276; }
+
+/* ── Input area ── */
+.chat-input-area {
+    background: var(--dasa-white) !important;
+    border-top: 1px solid var(--dasa-border) !important;
+    padding: 12px 16px !important;
+}
+input, textarea, [contenteditable] {
+    font-family: var(--font-primary) !important;
+    font-size: var(--font-size-base) !important;
+    border-radius: var(--radius-sm) !important;
+    min-height: 44px !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dasa-bg); }
+::-webkit-scrollbar-thumb { background: var(--dasa-border); border-radius: 3px; }
+
+/* ── Accessibility: focus indicators ── */
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 3px solid var(--dasa-accent) !important;
+    outline-offset: 2px !important;
+}
+
+/* ── High contrast ── */
+@media (prefers-contrast: high) {
+    :root {
+        --dasa-text: #000000;
+        --dasa-accent: #CC0000;
+    }
+}
