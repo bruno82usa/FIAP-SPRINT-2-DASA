@@ -253,7 +253,7 @@ genera-rag/
 
 | Nome | RM | Responsabilidade |
 |---|---|---|
-| Bruno | XXXXX | Desenvolvimento completo |
+| Bruno Gambarini | RM561517 | Desenvolvimento completo — Arquitetura RAG, Backend, Frontend, Documentacao |
 
 ---
 
