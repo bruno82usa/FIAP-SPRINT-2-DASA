@@ -245,7 +245,7 @@ genera-rag/
 
 ## Video de Demonstracao
 
-**Link**: [INSERIR LINK APOS GRAVACAO]
+**Link**: [https://youtu.be/YPDIPIcGJ8c](https://youtu.be/YPDIPIcGJ8c)
 
 ---
 
