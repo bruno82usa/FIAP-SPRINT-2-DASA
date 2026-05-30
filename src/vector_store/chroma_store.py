@@ -7,6 +7,7 @@ from chromadb.config import Settings
 
 from src.config import CHROMA_PERSIST_DIR, TOP_K_CHUNKS
 from src.embeddings.embedder import embed_texts, embed_query
+from src.data.cleaner import clean_genetic_text
 
 
 class ChromaStore:
@@ -147,7 +148,7 @@ class ChromaStore:
         if not chunks:
             return 0
 
-        texts = [c["text"] for c in chunks]
+        texts = [clean_genetic_text(c["text"]) for c in chunks]
         metadatas = [c["metadata"] for c in chunks]
 
         # Generate unique IDs

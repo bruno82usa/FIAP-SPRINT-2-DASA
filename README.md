@@ -116,7 +116,7 @@ Cores extraidas do site oficial [dasa.com.br](https://dasa.com.br):
 
 | Camada | Tecnologia | Justificativa |
 |---|---|---|
-| **Frontend** | Chainlit 2.x | Framework Python para chat apps, melhor UX que Streamlit para conversacao |
+| **Frontend** | Streamlit | Framework Python com componentes de chat nativos, abas via radio button, deploy simples. Ideal para prototipacao rapida e demonstracoes academicas |
 | **LLM Primario** | NVIDIA NIM — `meta/llama-3.3-70b-instruct` | 70B parametros, API OpenAI-compatible, creditos gratuitos NVIDIA |
 | **LLM Fallback** | OpenRouter — `openai/gpt-4o-mini` | Resiliencia automatica em caso de falha |
 | **Embeddings** | NVIDIA NeMo — `nvidia/nv-embed-v1` | 4096 dims, suporte passage vs query |
@@ -166,7 +166,7 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Execute
-chainlit run src/app.py
+streamlit run src/app.py
 ```
 
 Acesse `http://localhost:8000`.
@@ -183,7 +183,8 @@ genera-rag/
 │   ├── app.py                     # Chainlit — login + routing paciente/medico
 │   ├── config.py                  # Config central (.env)
 │   ├── data/
-│   │   ├── generator.py           # 3 relatorios com metallados completos
+│   │   ├── generator.py           # 3 relatorios com metadados completos
+│   │   ├── cleaner.py             # Normalizacao e limpeza de textos geneticos
 │   │   └── reports/               # JSONs gerados
 │   ├── embeddings/
 │   │   └── embedder.py            # NVIDIA NeMo embeddings
@@ -196,7 +197,8 @@ genera-rag/
 │       └── pipeline.py            # Orquestracao RAG completa
 ├── public/
 │   └── style.css                  # Tema DASA — cores, fontes, acessibilidade
-├── chainlit.md                    # Welcome screen Chainlit
+├── docs/
+│   └── GOVERNANCA.md              # Relatorio de governanca e riscos
 ├── chroma_db/                     # Persistencia ChromaDB
 ├── requirements.txt
 ├── .env.example
